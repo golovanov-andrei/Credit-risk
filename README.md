@@ -16,7 +16,7 @@
     <td><img src="https://github.com/golovanov-andrei/Credit-risk/raw/main/screens/collab.png" width="100%"></td>
     
   </tr>
-
+</table>
 ---
 
 ## 🚀 Ключевые возможности

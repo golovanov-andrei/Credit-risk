@@ -9,11 +9,11 @@
 
 <table>
   <tr>
-    <td><img src="https://github.com/golovanov-andrei/Credit-risk/blob/main/screens/streamlit.png" width="100%"></td>
-    <td><img src="https://github.com/golovanov-andrei/Credit-risk/blob/main/screens/result.png" width="100%"></td>
+    <td><img src="https://github.com/golovanov-andrei/Credit-risk/main/screens/streamlit.png" width="100%"></td>
+    <td><img src="https://github.com/golovanov-andrei/Credit-risk/main/screens/result.png" width="100%"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/golovanov-andrei/Credit-risk/blob/main/screens/collab.png" width="100%"></td>
+    <td><img src="https://github.com/golovanov-andrei/Credit-risk/main/screens/collab.png" width="100%"></td>
     
   </tr>
 

@@ -8,6 +8,15 @@ from credit_risk.model import fit_experiment, train
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@pytest.fixture
+def applicant():
+    return {
+        "Age": 35, "Credit amount": 9000, "Duration": 36, "Job": 2,
+        "Housing": "own", "Saving accounts": None,
+        "Checking account": "little", "Purpose": "car",
+    }
+
+
 @pytest.fixture(scope="session")
 def raw_data():
     return pd.read_csv(ROOT / "credit.csv")

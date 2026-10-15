@@ -84,7 +84,7 @@ if submitted:
         ax.axvline(0, color="#777777", linewidth=0.8)
         ax.set_xlabel("Вклад в log-odds относительно среднего по train")
         fig.tight_layout()
-        st.pyplot(fig)
+        st.pyplot(fig, width=900)
         plt.close(fig)
         st.caption(
             f"Показаны 10 крупнейших вкладов. Полная сумма всех вкладов "

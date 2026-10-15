@@ -10,7 +10,6 @@ from credit_risk.data import FEATURES, NUMERIC, normalize_features, synthetic_ta
 from credit_risk.model import (
     explain_one, load_artifact, predict_frame, score_band, select_threshold,
 )
-from conftest import ROOT
 
 
 def sample(raw_data):
@@ -120,10 +119,12 @@ def test_display_band_boundaries(score, band):
     assert score_band(score) == band
 
 
-def test_cli_prediction_and_invalid_json(artifact_dir, tmp_path):
+def test_cli_prediction_and_invalid_json(artifact_dir, tmp_path, applicant):
     command = [sys.executable, "-m", "credit_risk.cli", "predict",
                "--model", str(artifact_dir / "model.joblib")]
-    result = subprocess.run(command + ["--input", str(ROOT / "examples/applicant.json")],
+    input_path = tmp_path / "applicant.json"
+    input_path.write_text(json.dumps(applicant), encoding="utf-8")
+    result = subprocess.run(command + ["--input", str(input_path)],
                             capture_output=True, text=True, check=True)
     prediction = json.loads(result.stdout)[0]
     assert 0 <= prediction["score"] <= 1

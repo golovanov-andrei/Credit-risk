@@ -16,7 +16,7 @@ def test_missing_artifact_shows_training_command(monkeypatch, tmp_path):
     assert "credit-risk train" in app.warning[0].value
 
 
-def test_app_predictions_match_shared_pipeline(monkeypatch, artifact_dir):
+def test_app_predictions_match_shared_pipeline(monkeypatch, artifact_dir, applicant):
     path = artifact_dir / "model.joblib"
     monkeypatch.setenv("CREDIT_RISK_MODEL", str(path))
     app = AppTest.from_file(str(ROOT / "app.py"), default_timeout=30).run()
@@ -28,7 +28,7 @@ def test_app_predictions_match_shared_pipeline(monkeypatch, artifact_dir):
     app.button[0].click().run()
     assert not app.exception
     assert len(app.metric) == 3
-    raw = pd.read_json(ROOT / "examples/applicant.json", typ="series").to_frame().T
+    raw = pd.DataFrame([applicant])
     expected = predict_frame(load_artifact(path), raw).iloc[0]
     assert app.metric[0].value == f"{expected['score']:.1%}"
     assert app.metric[2].value == "1"

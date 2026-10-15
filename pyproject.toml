@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "credit-risk-demo"
+version = "0.1.0"
+description = "Reproducible classification demo with a synthetic credit rule target"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "numpy==2.2.6", "pandas==2.3.3", "scikit-learn==1.7.2",
+  "joblib==1.5.2", "matplotlib==3.10.7", "streamlit==1.50.0",
+]
+
+[project.scripts]
+credit-risk = "credit_risk.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+

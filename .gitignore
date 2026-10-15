@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+artifacts/
+credit.db
+credit_model.pkl
+feature_columns.pkl
+build/
+dist/
+
